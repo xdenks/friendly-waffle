@@ -1,0 +1,293 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #7C3AED;
+  --secondary: #4F46E5;
+  --accent: #C084FC;
+  --background: rgba(5,5,5,0.85);
+  --foreground: #e1e1e1;
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+}
+
+html, body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background);
+  color: var(--text-primary);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.text-glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.text-glitch::before,
+.text-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.text-glitch::before {
+  left: 2px;
+  text-shadow: -1px 0 var(--primary);
+  animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+.text-glitch::after {
+  left: -2px;
+  text-shadow: 1px 0 var(--secondary);
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+  0%, 80%, 100% { opacity: 0; }
+  40%, 43% { opacity: 1; transform: translateX(-2px); }
+  62%, 65% { opacity: 1; transform: translateX(2px); }
+}
+
+@keyframes glitch-anim-2 {
+  0%, 80%, 100% { opacity: 0; }
+  40%, 43% { opacity: 1; transform: translateX(2px); }
+  62%, 65% { opacity: 1; transform: translateX(-2px); }
+}
+
+.border-glow {
+  box-shadow: 0 0 5px 1px var(--primary),
+              0 0 10px 2px rgba(124, 58, 237, 0.5);
+}
+
+.border-glow-blue {
+  box-shadow: 0 0 5px 1px var(--secondary),
+              0 0 10px 2px rgba(79, 70, 229, 0.5);
+}
+
+.section-title {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background: linear-gradient(90deg, rgba(124,58,237,0) 0%, rgba(124,58,237,1) 50%, rgba(124,58,237,0) 100%);
+}
+
+.typing-cursor {
+  display: inline-block;
+  background-color: var(--primary);
+  margin-left: 2px;
+  width: 10px;
+  height: 1.2em;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.hexagon-grid {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.05;
+  pointer-events: none;
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, var(--primary) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--primary) 1px, transparent 1px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 58, 237, 0.7);
+}
+
+.skill-bar {
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-progress {
+  height: 100%;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  position: relative;
+  transition: width 1.5s ease;
+}
+
+.skill-progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shine 2s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.terminal-container {
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-radius: 6px;
+  padding: 1rem;
+  background-color: rgba(5, 5, 5, 0.9);
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(124, 58, 237, 0.3);
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.terminal-close {
+  background-color: #ff5f56;
+}
+
+.terminal-minimize {
+  background-color: #ffbd2e;
+}
+
+.terminal-maximize {
+  background-color: #27c93f;
+}
+
+.terminal-title {
+  margin-left: 10px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.terminal-content {
+  color: var(--primary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.terminal-prompt::before {
+  content: '$ ';
+  color: var(--secondary);
+}
+
+.blink {
+  animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .terminal-container {
+    padding: 0.75rem;
+  }
+  
+  .terminal-content {
+    font-size: 0.8rem;
+  }
+}
+
+/* Add this to handle the overall app container */
+.app-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ... (existing CSS remains unchanged) ... */
+
+/* Update the video-logo class */
+.video-logo {
+  width: 500px; /* As per your update */
+  height: auto;
+  overflow: hidden;
+  position: absolute; /* Ensure it stays fixed */
+  top: 100px; /* Adjust top offset as needed */
+  left: 49%;
+  transform: translateX(-50%);
+  z-index: 10; /* Ensure it stays above other content */
+}
+
+.video-logo video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: transparent; /* Explicitly set to transparent */
+}
+
+/* ... (rest of the CSS remains unchanged) ... */
