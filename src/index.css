@@ -293,7 +293,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Mobile adjustments - moves the logo up on mobile screens */
 @media (max-width: 768px) {
   .video-logo {
-    top: 70px; /* Move the logo higher on mobile */
+    top: 120px; /* Move the logo higher on mobile */
     width: 85%; /* Use percentage for better responsive behavior */
     max-width: 380px; /* Prevent it from getting too large */
   }
@@ -302,7 +302,7 @@ h1, h2, h3, h4, h5, h6 {
 /* S23 Ultra and similar large phones */
 @media (min-width: 390px) and (max-width: 480px) {
   .video-logo {
-    top: 60px; /* Move even higher on larger phones */
+    top: 100px; /* Move even higher on larger phones */
     width: 80%;
     max-width: 350px;
   }
