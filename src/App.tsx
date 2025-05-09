@@ -18,6 +18,7 @@ function App() {
           <source src="/assets/adqwea_seamless.webm" type="video/webm" />
           Your browser does not support the video tag.
         </video>
+        <div className="logo-name">Denis V.</div>
       </div>
       
       {/* Main content */}
