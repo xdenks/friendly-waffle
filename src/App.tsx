@@ -12,7 +12,7 @@ function App() {
   
   return (
     <div className="app-container">
-      {/* Fixed logo container outside of scrollable content */}
+      {/* Logo container with separate name element */}
       <div className="video-logo">
         <video autoPlay loop muted playsInline>
           <source src="/assets/adqwea_seamless.webm" type="video/webm" />
