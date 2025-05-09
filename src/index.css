@@ -273,7 +273,7 @@ h1, h2, h3, h4, h5, h6 {
 .video-logo {
   width: 500px;
   height: auto;
-  overflow: hidden;
+  overflow: visible;
   position: absolute;
   top: 60px;
   left: 49%;
@@ -298,19 +298,28 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
-  margin-top: 120px;
+  margin-top: 10px;
   display: none; /* Hidden by default on desktop */
 }
 
 /* Mobile-specific styles */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .video-logo {
+    top: 100px; /* Adjusted to provide more space */
     flex-direction: column;
-    justify-content: center;
+    width: 100%; /* Ensure it scales with viewport */
+    max-width: 400px; /* Prevent it from being too large */
+  }
+
+  .video-logo video {
+    width: 100%;
+    max-width: 400px; /* Limit video size on mobile */
   }
 
   .logo-name {
     display: block; /* Show name below video on mobile */
+    margin-top: 5rem; /* Dynamic spacing for better scaling */
+    font-size: 1.25rem; /* Slightly smaller for mobile */
   }
 
   /* Hide any name overlay on the video itself (if present in the webm) */
