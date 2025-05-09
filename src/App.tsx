@@ -4,23 +4,23 @@ import Navigation from './components/Navigation';
 import Home from './pages/Home';
 import BackgroundAnimation from './components/BackgroundAnimation';
 import Footer from './components/Footer';
+import './index.css';
 
 function App() {
   useEffect(() => {
     document.title = "Denis V. | Cloud & Security Engineer";
   }, []);
-  
+
   return (
     <div className="app-container">
-      {/* Logo container with separate name element */}
+      {/* Fixed logo container with video and name */}
       <div className="video-logo">
         <video autoPlay loop muted playsInline>
           <source src="/assets/adqwea_seamless.webm" type="video/webm" />
           Your browser does not support the video tag.
         </video>
-        <div className="logo-name">Denis V.</div>
       </div>
-      
+
       {/* Main content */}
       <div className="flex flex-col min-h-screen">
         <BackgroundAnimation />

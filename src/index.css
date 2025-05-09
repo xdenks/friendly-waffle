@@ -269,61 +269,57 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 100vh;
 }
 
-* Video logo styles - refined */
+/* ... (existing CSS remains unchanged) ... */
+
+/* Update your existing video-logo class with these adjustments */
 .video-logo {
   width: 500px;
   height: auto;
+  overflow: hidden;
   position: absolute;
-  top: 60px;
-  left: 50%;
+  top: 100px;
+  left: 49%;
   transform: translateX(-50%);
   z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .video-logo video {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: contain;
   background: transparent;
 }
 
-/* Logo name styles */
-.logo-name {
-  font-family: 'JetBrains Mono', monospace;
-  color: var(--text-primary);
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 10px;
-  display: none; /* Hidden by default on desktop */
+/* Mobile adjustments - moves the logo up on mobile screens */
+@media (max-width: 768px) {
+  .video-logo {
+    top: 70px; /* Move the logo higher on mobile */
+    width: 85%; /* Use percentage for better responsive behavior */
+    max-width: 380px; /* Prevent it from getting too large */
+  }
 }
 
-/* Mobile-specific styles with more precise breakpoints */
-@media (max-width: 1024px) {
+/* S23 Ultra and similar large phones */
+@media (min-width: 390px) and (max-width: 480px) {
   .video-logo {
-    top: 80px;
+    top: 60px; /* Move even higher on larger phones */
     width: 80%;
     max-width: 350px;
   }
+}
 
-  .logo-name {
-    display: block; /* Show name on mobile */
-    margin-top: 20px; /* Fixed spacing below logo */
+/* Small phones */
+@media (max-width: 389px) {
+  .video-logo {
+    top: 50px; /* Position even higher on small phones */
+    width: 90%;
+    max-width: 320px;
   }
 }
 
-/* Additional styles specifically for larger phones like S23 Ultra */
-@media (max-width: 480px) {
-  .video-logo {
-    top: 60px;
-    width: 90%;
-  }
-  
-  .logo-name {
-    margin-top: 30px; /* More spacing for better separation */
-    font-size: 1.4rem;
+/* Adjust the main content padding to prevent overlap */
+@media (max-width: 768px) {
+  main {
+    padding-top: 40px; /* Add some padding to the main content */
   }
 }
